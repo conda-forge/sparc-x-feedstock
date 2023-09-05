@@ -20,7 +20,7 @@ requirements:
   build:
     - {{ compiler('c') }}
     - make
-    - openmpi-mpicc
+    - openmpi
     - openblas
     - scalapack
     - fftw * mpi_openmpi_*
