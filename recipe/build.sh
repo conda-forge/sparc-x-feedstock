@@ -2,6 +2,25 @@
 
 cd $SRC_DIR/src
 make clean
+
+if [[ "$CONDA_BUILD_CROSS_COMPILATION" == "1" ]]; then
+  # This is only used by open-mpi's mpicc
+  # ignored in other cases
+  export OMPI_CC=$CC
+  export OMPI_CXX=$CXX
+  export OMPI_FC=$FC
+  export OPAL_PREFIX=$PREFIX
+  
+  export CFLAGS="$CFLAGS -fno-lto -Wl,-fno-lto"
+  export CPPFLAGS="$CPPFLAGS -fno-lto -Wl,-fno-lto"
+fi
+
+# OSX specific: do not link against librt
+if ! [ -z "$OSX_ARCH"]
+then
+    sed -i 's/^\s*LDLIBS\s*=\s*-lrt\s*$/LDLIBS = /' makefile
+fi
+
 make USE_MKL=0 USE_SCALAPACK=1 USE_FFTW=1
 
 echo "Installing sparc into $PREFIX/bin"

@@ -2,15 +2,17 @@ github:
   branch_name: main
   tooling_branch_name: main
 build_platform:
+  linux_64: linux_64
+  # Choose the travis platform
   linux_aarch64: linux_aarch64
-test: native
-channels:
-  sources:
-    - conda-forge
-    - defaults
+  osx_64: osx_64
+  osx_arm64: osx_arm64
 provider:
   linux_64: default
   linux_aarch64: default
+  osx_64: default
+  osx_arm64: default
+test: native
 conda_build:
   error_overlinking: true
 conda_forge_output_validation: true
