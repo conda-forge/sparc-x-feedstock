@@ -16,7 +16,7 @@ if [[ "$CONDA_BUILD_CROSS_COMPILATION" == "1" ]]; then
 fi
 
 # OSX specific: do not link against librt
-if ! [ -z "$OSX_ARCH"]
+if ! [ -z "$OSX_ARCH" ]
 then
     sed -i 's/^\s*LDLIBS\s*=\s*-lrt\s*$/LDLIBS = /' makefile
 fi
