@@ -18,7 +18,7 @@ fi
 # OSX specific: do not link against librt
 if ! [ -z "$OSX_ARCH" ]
 then
-    sed -i 's/^\s*LDLIBS\s*=\s*-lrt\s*$/LDLIBS = /' makefile
+    sed -iE "s/^[[:space:]]*LDLIBS[[:space:]]*=[[:space:]]*-lrt[[:space:]]*$/LDLIBS = /" makefile
 fi
 
 make USE_MKL=0 USE_SCALAPACK=1 USE_FFTW=1
