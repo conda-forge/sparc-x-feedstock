@@ -11,7 +11,7 @@ echo "Moving sparc psp into $PREFIX/share/sparc/psps"
 mkdir -p $PREFIX/share/sparc/psps
 cp $SRC_DIR/psps/* $PREFIX/share/sparc/psps/
 mkdir -p $PREFIX/doc/sparc
-cp -r $SRC_DIR/doc/ $PREFIX/doc/sparc/
+cp -R $SRC_DIR/doc/ $PREFIX/doc/sparc/
 echo "Finish compiling sparc!"
 
 # Copy activate and deactivate scripts
