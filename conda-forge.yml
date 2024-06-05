@@ -1,16 +1,16 @@
-github:
-  branch_name: main
-  tooling_branch_name: main
 build_platform:
   linux_aarch64: linux_aarch64
-test: native
 channels:
   sources:
-    - conda-forge
-    - defaults
-provider:
-  linux_64: default
-  linux_aarch64: default
+  - conda-forge
+  - defaults
 conda_build:
   error_overlinking: true
 conda_forge_output_validation: true
+github:
+  branch_name: main
+  tooling_branch_name: main
+provider:
+  linux_64: default
+  linux_aarch64: default
+test: native
